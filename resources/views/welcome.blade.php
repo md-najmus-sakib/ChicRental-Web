@@ -7,5 +7,8 @@
 </head>
 <body>
     <h1>ChicRental</h1>
+    <div>
+        <h3>Product List</h3>
+    </div>
 </body>
 </html>
