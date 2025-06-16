@@ -7,5 +7,6 @@
 </head>
 <body>
     <h1>ChicRental</h1>
+    <h3>Product</h3>
 </body>
 </html>
