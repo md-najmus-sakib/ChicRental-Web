@@ -8,5 +8,6 @@
 <body>
     <h1>ChicRental</h1>
     <h3>Product</h3>
+    <h3>Price</h3>
 </body>
 </html>
