@@ -1,0 +1,30 @@
+.allert {
+    text-align: center;
+    background-color: rgb(246, 112, 63);
+}
+
+.allert:hover {
+    color: rgb(255, 255, 255);
+    background-color: rgb(246, 112, 63);
+}
+
+/*Footer start*/
+.footer-link {
+    text-decoration: none;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+}
+
+.footer-icon a {
+    color: #B9B9B9;
+    margin: 8px;
+    font-size: 40px;
+}
+
+.footer-icon a:hover {
+    color: rgb(83, 78, 152);
+}
+
+/*Footer end*/
