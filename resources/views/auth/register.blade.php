@@ -26,7 +26,7 @@
                         <label for="name" class="form-label">Full Name</label>
                         <div class="input-group">
                             <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
-                            <input type="text" name="name" id="name" value="{{ old('name') }}" required autofocus class="form-control" placeholder="Your Name">
+                            <input type="text" name="name" id="name" value="{{ old('name') }}" required class="form-control" placeholder="Your Name">
                         </div>
                     </div>
                     
