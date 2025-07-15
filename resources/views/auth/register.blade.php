@@ -55,7 +55,7 @@
                         <div id="password-error" class="text-danger small mt-1" style="display:none;"></div>
                     </div>
 
-                    <div class="d-grid mb-2">
+                    <div class="d-grid mb-2 mt-4t ">
                         <button type="submit" class="btn btn-danger fw-bold" id="signupBtn">
                             <i class="fa-solid fa-user-plus"></i> Create Account
                         </button>
@@ -71,3 +71,4 @@
     </div>
 </div>
 @endsection
+<script src="{{ asset('assets/js/register.js') }}"></script>
