@@ -30,7 +30,7 @@
                 <!-- Extra Features -->
                 <li class="nav-item"><a class="nav-link" href="#">Track Order</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Offers</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">FAQ</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('faq') }}">FAQ</a></li>
             </ul>
             <ul class="navbar-nav mb-2 mb-lg-0 align-items-center">
                 <!-- Cart Icon with badge -->
