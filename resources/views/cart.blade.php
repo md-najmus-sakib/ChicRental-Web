@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container py-5">
+<div class="container py-5 mt-5">
     <h2 class="fw-bold mb-4"><i class="fa-solid fa-cart-shopping text-danger"></i> Shopping Cart</h2>
     @if(isset($cartItems) && count($cartItems))
         <div class="row">

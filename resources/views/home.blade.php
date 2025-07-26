@@ -14,7 +14,7 @@
             </a>
         </div>
         <div class="col-md-6 text-center">
-            <img src="{{asset('assets/image/home/Lehenga02.png')}}"
+            <img src="{{asset('assets/image/home/CD01.png')}}"
                  class="img-fluid rounded shadow mt-5" style="max-width:350px;" alt="">
         </div>
     </div>
