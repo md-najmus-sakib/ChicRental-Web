@@ -23,3 +23,8 @@ Route::view('/faq', 'faq')->name('faq');
 Route::get('/cart', [CartController::class, 'index'])->name('cart');
 
 require __DIR__.'/auth.php';
+
+Route::get('/search', function (Illuminate\Http\Request $request) {
+    $query = $request->q;
+    return view('search', compact('query'));
+})->name('search');

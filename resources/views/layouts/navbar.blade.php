@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm py-2">
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm py-1">
     <div class="container">
         <a class="navbar-brand fw-bold d-flex align-items-center" href="{{ route('home') }}">
             <img src="{{asset('assets/image/logo-s.png')}}" alt="ChicRental Logo" width="140" height="35" class="me-2">
@@ -32,6 +32,15 @@
                 <li class="nav-item"><a class="nav-link" href="#">Offers</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('faq') }}">FAQ</a></li>
             </ul>
+            <!-- Search Option -->
+            <form class="d-flex mx-3" action="{{ route('search') }}" method="GET" role="search">
+                <div class="input-group">
+                    <input class="form-control" type="search" name="q" placeholder="Search products..." aria-label="Search">
+                    <button class="btn btn-danger" type="submit">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+            </form>
             <ul class="navbar-nav mb-2 mb-lg-0 align-items-center">
                 <li class="nav-item me-3">
                     <a class="nav-link position-relative" href="{{ route('cart') }}">
@@ -56,9 +65,4 @@
             </ul>
         </div>
     </div>
-
-    <!-- Inline CSS for hover effect -->
-    <style>
-        
-    </style>
 </nav>
