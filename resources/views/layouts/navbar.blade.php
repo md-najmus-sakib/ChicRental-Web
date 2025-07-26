@@ -28,7 +28,7 @@
                 </li>
                 <li class="nav-item"><a class="nav-link" href="#">Couple Dress</a></li>
                 <!-- Extra Features -->
-                <li class="nav-item"><a class="nav-link" href="#">Track Order</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('track_order')}}">Track Order</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Offers</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('faq') }}">FAQ</a></li>
             </ul>

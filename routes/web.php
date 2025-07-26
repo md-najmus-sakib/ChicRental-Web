@@ -28,3 +28,5 @@ Route::get('/search', function (Illuminate\Http\Request $request) {
     $query = $request->q;
     return view('search', compact('query'));
 })->name('search');
+
+Route::get('/track-order', [OrderController::class, 'track'])->name('track_order');
