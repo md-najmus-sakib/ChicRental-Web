@@ -19,4 +19,6 @@ Route::middleware('auth')->group(function () {
 
 Route::view('/faq', 'faq')->name('faq');
 
+Route::get('/cart', [CartController::class, 'index'])->name('cart');
+
 require __DIR__.'/auth.php';

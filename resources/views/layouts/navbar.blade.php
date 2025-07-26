@@ -33,11 +33,9 @@
                 <li class="nav-item"><a class="nav-link" href="{{ route('faq') }}">FAQ</a></li>
             </ul>
             <ul class="navbar-nav mb-2 mb-lg-0 align-items-center">
-                <!-- Cart Icon with badge -->
                 <li class="nav-item me-3">
-                    <a class="nav-link position-relative" href="#">
+                    <a class="nav-link position-relative" href="{{ route('cart') }}">
                         <i class="fa-solid fa-cart-shopping fa-lg"></i>
-                        
                     </a>
                 </li>
                 <!-- Login -->
