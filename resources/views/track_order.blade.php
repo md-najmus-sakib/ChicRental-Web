@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container py-5">
+<div class="container py-5 mt-5">
     <h2 class="fw-bold mb-4 text-center">
         <i class="fa-solid fa-truck-fast text-danger"></i> Track Your Order
     </h2>
