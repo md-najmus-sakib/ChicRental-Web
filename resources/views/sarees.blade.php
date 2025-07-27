@@ -36,7 +36,7 @@
                 @endif
 
                 <div class="product-img-container position-relative overflow-hidden">
-                    <img src="{{asset('assets/image/sharre1.jpg')}}" class="card-img-top product-img" alt="{{ $saree->name }}">
+                    <img src="{{asset('assets/image/sharee1.jpg')}}" class="card-img-top product-img" alt="{{ $saree->name }}">
                     <!-- Quick View Button (Modal trigger) -->
                     <button class="btn btn-light btn-sm quick-view-btn position-absolute top-50 start-50 translate-middle shadow" data-bs-toggle="modal" data-bs-target="#quickViewModal{{ $saree->id }}">
                         <i class="fa fa-eye"></i> Quick View

@@ -21,7 +21,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="womenDropdown" role="button" data-bs-toggle="dropdown">Women</a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Saree</a></li>
+                        <li><a class="dropdown-item" href="{{ route('sarees') }}">Saree</a></li>
                         <li><a class="dropdown-item" href="#">Gown</a></li>
                         <li><a class="dropdown-item" href="#">Jewellery</a></li>
                     </ul>

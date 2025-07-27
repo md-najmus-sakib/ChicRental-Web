@@ -31,3 +31,12 @@ Route::get('/search', function (Illuminate\Http\Request $request) {
 })->name('search');
 
 Route::get('/track-order', [OrderController::class, 'track'])->name('track_order');
+
+
+use App\Http\Controllers\SareeController;
+Route::get('/sarees', [SareeController::class, 'sarees'])->name('sarees');
+
+use App\Http\Controllers\WishlistController;
+Route::post('/wishlist/add/{id}', [WishlistController::class, 'add'])->name('wishlist.add');
+
+Route::post('/cart/add/{id}', [CartController::class, 'add'])->name('cart.add');
