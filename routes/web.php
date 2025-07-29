@@ -45,3 +45,7 @@ Route::post('/cart/add/{id}', [CartController::class, 'add'])->name('cart.add');
 Route::post('/cart/rent-now/{id}', [CartController::class, 'rentNow'])->name('cart.rentNow');
 
 Route::get('/lehenga', [LehengaController::class, 'index'])->name('lehenga');
+
+Route::get('/men/suits', function () {
+    return view('mensuits');
+})->name('mensuits');

@@ -5,7 +5,7 @@
     <div class="row mb-4">
         <div class="col-lg-8">
             <h2 class="fw-bold mb-2">
-                <i class="fa-solid fa-user-tie text-primary"></i> Men’s Suit Collection
+                <i class="fa-solid fa-user-tie text-primary"></i> Men's Suit Collection
             </h2>
             <div class="text-muted mb-2">Discover classy suits for wedding, party, business and more. Rent or add to wishlist in a click!</div>
         </div>
@@ -30,7 +30,7 @@
         <div class="col-12 col-md-6 col-lg-4">
             <div class="card h-100 border-0 shadow product-card-men position-relative">
                 <div class="product-img-container-men position-relative overflow-hidden">
-                    <img src="{{ asset('assets/image/suit1.jpg') }}" class="card-img-top product-img-men" alt="Classic Navy Suit">
+                    <img src="{{ asset('assets/image/suit/suit-1.jpg') }}" class="card-img-top product-img-men" alt="Classic Navy Suit">
                     <button class="btn btn-dark btn-sm quick-view-btn-men position-absolute top-50 start-50 translate-middle shadow">
                         <i class="fa fa-eye"></i> Quick View
                     </button>
@@ -58,7 +58,7 @@
         <div class="col-12 col-md-6 col-lg-4">
             <div class="card h-100 border-0 shadow product-card-men position-relative">
                 <div class="product-img-container-men position-relative overflow-hidden">
-                    <img src="{{ asset('assets/image/suit2.jpg') }}" class="card-img-top product-img-men" alt="Business Gray Suit">
+                    <img src="{{ asset('assets/image/suit/suit-1.jpg') }}" class="card-img-top product-img-men" alt="Business Gray Suit">
                     <button class="btn btn-dark btn-sm quick-view-btn-men position-absolute top-50 start-50 translate-middle shadow">
                         <i class="fa fa-eye"></i> Quick View
                     </button>
@@ -86,7 +86,7 @@
         <div class="col-12 col-md-6 col-lg-4">
             <div class="card h-100 border-0 shadow product-card-men position-relative">
                 <div class="product-img-container-men position-relative overflow-hidden">
-                    <img src="{{ asset('assets/image/suit3.jpg') }}" class="card-img-top product-img-men" alt="Slim Fit Black Tuxedo">
+                    <img src="{{ asset('assets/image/suit/suit-1.jpg') }}" class="card-img-top product-img-men" alt="Slim Fit Black Tuxedo">
                     <button class="btn btn-dark btn-sm quick-view-btn-men position-absolute top-50 start-50 translate-middle shadow">
                         <i class="fa fa-eye"></i> Quick View
                     </button>

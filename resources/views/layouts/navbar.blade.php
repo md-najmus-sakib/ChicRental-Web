@@ -12,7 +12,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="menDropdown" role="button" data-bs-toggle="dropdown">Men</a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Suit</a></li>
+                        <li><a class="dropdown-item" href="{{ route('mensuits') }}">Suit</a></li>
                         <li><a class="dropdown-item" href="#">Sherwani</a></li>
                         <li><a class="dropdown-item" href="#">Kurta</a></li>
                     </ul>
