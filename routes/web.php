@@ -40,3 +40,5 @@ use App\Http\Controllers\WishlistController;
 Route::post('/wishlist/add/{id}', [WishlistController::class, 'add'])->name('wishlist.add');
 
 Route::post('/cart/add/{id}', [CartController::class, 'add'])->name('cart.add');
+
+Route::post('/cart/rent-now/{id}', [CartController::class, 'rentNow'])->name('cart.rentNow');

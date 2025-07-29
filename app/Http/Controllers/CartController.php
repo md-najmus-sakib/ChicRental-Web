@@ -14,7 +14,6 @@ class CartController extends Controller
     public function add(Request $request, $id)
     {
         $cart = session()->get('cart', []);
-
         if (isset($cart[$id])) {
             $cart[$id]['quantity']++;
         } else {
@@ -22,9 +21,12 @@ class CartController extends Controller
                 'quantity' => 1
             ];
         }
-
         session(['cart' => $cart]);
-
         return back()->with('success', 'Item added to cart!');
+    }
+
+    public function rentNow($id)
+    {
+        return view('cart.checkout', ['saree_id' => $id]);
     }
 }
