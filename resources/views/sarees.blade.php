@@ -34,12 +34,16 @@
             ];
             $prices = [1800, 1600, 2200, 1500, 1750, 1700, 2500, 2000, 1200, 2400];
             $categories = ['Bridal', 'Party', 'Silk', 'Katan', 'Georgette', 'Tussar', 'Jamdani', 'Kanjivaram', 'Cotton', 'Banarasi'];
+            $images = [];
+            for ($n = 1; $n <= 10; $n++) {
+                $images[] = asset("assets/image/saree-$n.jpg");
+            }
         @endphp
         @for ($i = 0; $i < 10; $i++)
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
             <div class="card h-100 border-0 shadow-sm product-card position-relative">
                 <div class="product-img-container position-relative overflow-hidden">
-                    <img src="{{ asset('assets/image/saree-1.jpg') }}" class="card-img-top product-img" alt="{{ $sareeNames[$i] }}">
+                    <img src="{{ $images[$i] }}" class="card-img-top product-img" alt="{{ $sareeNames[$i] }}">
                     <!-- Quick View Button (triggers modal) -->
                     <button 
                         class="btn btn-light btn-sm quick-view-btn position-absolute top-50 start-50 translate-middle shadow"
@@ -76,7 +80,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body text-center">
-                        <img src="{{ asset('assets/image/saree/saree-1.jpg') }}" class="img-fluid mb-3 rounded" style="max-height:320px;" alt="{{ $sareeNames[$i] }}">
+                        <img src="{{ $images[$i] }}" class="img-fluid mb-3 rounded" style="max-height:320px;" alt="{{ $sareeNames[$i] }}">
                         <div class="mb-2 text-muted">{{ $categories[$i] }}</div>
                         <div class="fw-bold text-danger mb-3" style="font-size:1.2em;">৳{{ $prices[$i] }}</div>
                         <p>Lorem ipsum dolor sit amet, beautiful designer saree available for rent.</p>
@@ -110,20 +114,25 @@
     box-shadow: 0 0.5rem 1.5rem rgba(220,53,69,0.15);
 }
 .product-img-container {
-    height: 200px;
+    width: 100%;
+    height: 340px;
     background: #f8f9fa;
     border-radius: 14px 14px 0 0;
     position: relative;
+    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
 .product-img {
-    max-height: 96%;
-    max-width: 96%;
-    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
     transition: transform 0.3s;
 }
+
 .product-img-container:hover .product-img {
     transform: scale(1.05) rotate(-1.5deg);
 }
