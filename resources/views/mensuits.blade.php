@@ -5,7 +5,7 @@
     <div class="row mb-4">
         <div class="col-lg-8">
             <h2 class="fw-bold mb-2">
-                <i class="fa-solid fa-user-tie text-primary"></i> Men's Suit Collection
+                <i class="fa-solid fa-user-tie text-primary"></i> Men’s Suit Collection
             </h2>
             <div class="text-muted mb-2">Discover classy suits for wedding, party, business and more. Rent or add to wishlist in a click!</div>
         </div>
@@ -22,142 +22,234 @@
             </form>
         </div>
     </div>
-
-    <!-- Suit List -->
-    <div class="row g-4">
-
-        <!-- Card 1 -->
-        <div class="col-12 col-md-6 col-lg-4">
-            <div class="card h-100 border-0 shadow product-card-men position-relative">
-                <div class="product-img-container-men position-relative overflow-hidden">
-                    <img src="{{ asset('assets/image/suit/suit-1.jpg') }}" class="card-img-top product-img-men" alt="Classic Navy Suit">
-                    <button class="btn btn-dark btn-sm quick-view-btn-men position-absolute top-50 start-50 translate-middle shadow">
-                        <i class="fa fa-eye"></i> Quick View
-                    </button>
-                    <button class="btn btn-outline-primary btn-sm rounded-circle shadow-sm position-absolute top-0 end-0 m-2" type="button" title="Add to wishlist">
-                        <i class="fa-regular fa-heart"></i>
-                    </button>
+    
+    <div class="row g-3">
+        <!-- Card - 1 -->
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+            <div class="card h-100 product-card shadow-sm border-0">
+                <div class="product-img-container position-relative overflow-hidden">
+                    <img src="{{ asset('assets/image/suit/suit-1.jpg') }}" alt="Classic Black Suit" class="product-img card-img-top">
+                    <button class="btn btn-light btn-sm quick-view-btn position-absolute top-50 start-50 translate-middle shadow"><i class="fa fa-eye"></i> Quick View</button>
                 </div>
-                <div class="card-body text-center">
-                    <h5 class="card-title mb-1 fw-semibold">Classic Navy Suit</h5>
-                    <div class="mb-1 text-muted" style="font-size:0.98em;">Wedding/Party</div>
-                    <div class="fw-bold text-primary fs-5 mb-1">৳2,400</div>
+                <div class="card-body text-center py-2">
+                    <h5 class="card-title mb-1">Classic Black Suit</h5>
+                    <div class="text-muted" style="font-size:0.93em;">Formal</div>
+                    <div class="fw-bold text-primary fs-6 mb-2">৳2200</div>
                     <div class="d-flex gap-2 justify-content-center">
-                        <button class="btn btn-outline-primary flex-fill" title="Add to Cart">
-                            <i class="fa fa-cart-plus"></i>
-                        </button>
-                        <button class="btn btn-primary flex-fill fw-bold" title="Rent Now">
-                            <i class="fa fa-bag-shopping"></i> Rent Now
-                        </button>
+                        <button class="btn btn-outline-primary btn-sm flex-fill" title="Add to Cart"><i class="fa fa-cart-plus"></i></button>
+                        <button class="btn btn-primary btn-sm flex-fill fw-bold" title="Rent Now"><i class="fa fa-bag-shopping"></i> Rent Now</button>
                     </div>
                 </div>
             </div>
         </div>
-
-        <!-- Card 2 -->
-        <div class="col-12 col-md-6 col-lg-4">
-            <div class="card h-100 border-0 shadow product-card-men position-relative">
-                <div class="product-img-container-men position-relative overflow-hidden">
-                    <img src="{{ asset('assets/image/suit/suit-1.jpg') }}" class="card-img-top product-img-men" alt="Business Gray Suit">
-                    <button class="btn btn-dark btn-sm quick-view-btn-men position-absolute top-50 start-50 translate-middle shadow">
-                        <i class="fa fa-eye"></i> Quick View
-                    </button>
-                    <button class="btn btn-outline-primary btn-sm rounded-circle shadow-sm position-absolute top-0 end-0 m-2" type="button" title="Add to wishlist">
-                        <i class="fa-regular fa-heart"></i>
-                    </button>
+        <!-- Card - 2 -->
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+            <div class="card h-100 product-card shadow-sm border-0">
+                <div class="product-img-container position-relative overflow-hidden">
+                    <img src="{{ asset('assets/image/suit/suit-1.jpg') }}" alt="Blue Wedding Tuxedo" class="product-img card-img-top">
+                    <button class="btn btn-light btn-sm quick-view-btn position-absolute top-50 start-50 translate-middle shadow"><i class="fa fa-eye"></i> Quick View</button>
                 </div>
-                <div class="card-body text-center">
-                    <h5 class="card-title mb-1 fw-semibold">Business Gray Suit</h5>
-                    <div class="mb-1 text-muted" style="font-size:0.98em;">Business</div>
-                    <div class="fw-bold text-primary fs-5 mb-1">৳2,200</div>
+                <div class="card-body text-center py-2">
+                    <h5 class="card-title mb-1">Blue Wedding Tuxedo</h5>
+                    <div class="text-muted" style="font-size:0.93em;">Wedding</div>
+                    <div class="fw-bold text-primary fs-6 mb-2">৳2500</div>
                     <div class="d-flex gap-2 justify-content-center">
-                        <button class="btn btn-outline-primary flex-fill" title="Add to Cart">
-                            <i class="fa fa-cart-plus"></i>
-                        </button>
-                        <button class="btn btn-primary flex-fill fw-bold" title="Rent Now">
-                            <i class="fa fa-bag-shopping"></i> Rent Now
-                        </button>
+                        <button class="btn btn-outline-primary btn-sm flex-fill" title="Add to Cart"><i class="fa fa-cart-plus"></i></button>
+                        <button class="btn btn-primary btn-sm flex-fill fw-bold" title="Rent Now"><i class="fa fa-bag-shopping"></i> Rent Now</button>
                     </div>
                 </div>
             </div>
         </div>
-
-        <!-- Card 3 -->
-        <div class="col-12 col-md-6 col-lg-4">
-            <div class="card h-100 border-0 shadow product-card-men position-relative">
-                <div class="product-img-container-men position-relative overflow-hidden">
-                    <img src="{{ asset('assets/image/suit/suit-1.jpg') }}" class="card-img-top product-img-men" alt="Slim Fit Black Tuxedo">
-                    <button class="btn btn-dark btn-sm quick-view-btn-men position-absolute top-50 start-50 translate-middle shadow">
-                        <i class="fa fa-eye"></i> Quick View
-                    </button>
-                    <button class="btn btn-outline-primary btn-sm rounded-circle shadow-sm position-absolute top-0 end-0 m-2" type="button" title="Add to wishlist">
-                        <i class="fa-regular fa-heart"></i>
-                    </button>
+        <!-- Card - 3 -->
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+            <div class="card h-100 product-card shadow-sm border-0">
+                <div class="product-img-container position-relative overflow-hidden">
+                    <img src="{{ asset('assets/image/suit/suit-1.jpg') }}" alt="Grey Check Suit" class="product-img card-img-top">
+                    <button class="btn btn-light btn-sm quick-view-btn position-absolute top-50 start-50 translate-middle shadow"><i class="fa fa-eye"></i> Quick View</button>
                 </div>
-                <div class="card-body text-center">
-                    <h5 class="card-title mb-1 fw-semibold">Slim Fit Black Tuxedo</h5>
-                    <div class="mb-1 text-muted" style="font-size:0.98em;">Formal</div>
-                    <div class="fw-bold text-primary fs-5 mb-1">৳2,800</div>
+                <div class="card-body text-center py-2">
+                    <h5 class="card-title mb-1">Grey Check Suit</h5>
+                    <div class="text-muted" style="font-size:0.93em;">Casual</div>
+                    <div class="fw-bold text-primary fs-6 mb-2">৳1800</div>
                     <div class="d-flex gap-2 justify-content-center">
-                        <button class="btn btn-outline-primary flex-fill" title="Add to Cart">
-                            <i class="fa fa-cart-plus"></i>
-                        </button>
-                        <button class="btn btn-primary flex-fill fw-bold" title="Rent Now">
-                            <i class="fa fa-bag-shopping"></i> Rent Now
-                        </button>
+                        <button class="btn btn-outline-primary btn-sm flex-fill" title="Add to Cart"><i class="fa fa-cart-plus"></i></button>
+                        <button class="btn btn-primary btn-sm flex-fill fw-bold" title="Rent Now"><i class="fa fa-bag-shopping"></i> Rent Now</button>
                     </div>
                 </div>
             </div>
         </div>
-
-        <!-- আরও কার্ড চাইলে এইভাবে কপি-পেস্ট করে নাম/ছবি/দাম পাল্টাও -->
-
+        <!-- Card - 4 -->
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+            <div class="card h-100 product-card shadow-sm border-0">
+                <div class="product-img-container position-relative overflow-hidden">
+                    <img src="{{ asset('assets/image/suit/suit-1.jpg') }}" alt="Ivory Festive Blazer" class="product-img card-img-top">
+                    <button class="btn btn-light btn-sm quick-view-btn position-absolute top-50 start-50 translate-middle shadow"><i class="fa fa-eye"></i> Quick View</button>
+                </div>
+                <div class="card-body text-center py-2">
+                    <h5 class="card-title mb-1">Ivory Festive Blazer</h5>
+                    <div class="text-muted" style="font-size:0.93em;">Festive</div>
+                    <div class="fw-bold text-primary fs-6 mb-2">৳1900</div>
+                    <div class="d-flex gap-2 justify-content-center">
+                        <button class="btn btn-outline-primary btn-sm flex-fill" title="Add to Cart"><i class="fa fa-cart-plus"></i></button>
+                        <button class="btn btn-primary btn-sm flex-fill fw-bold" title="Rent Now"><i class="fa fa-bag-shopping"></i> Rent Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Card - 5 -->
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+            <div class="card h-100 product-card shadow-sm border-0">
+                <div class="product-img-container position-relative overflow-hidden">
+                    <img src="{{ asset('assets/image/suit/suit-1.jpg') }}" alt="Velvet Maroon Suit" class="product-img card-img-top">
+                    <button class="btn btn-light btn-sm quick-view-btn position-absolute top-50 start-50 translate-middle shadow"><i class="fa fa-eye"></i> Quick View</button>
+                </div>
+                <div class="card-body text-center py-2">
+                    <h5 class="card-title mb-1">Velvet Maroon Suit</h5>
+                    <div class="text-muted" style="font-size:0.93em;">Party</div>
+                    <div class="fw-bold text-primary fs-6 mb-2">৳2100</div>
+                    <div class="d-flex gap-2 justify-content-center">
+                        <button class="btn btn-outline-primary btn-sm flex-fill" title="Add to Cart"><i class="fa fa-cart-plus"></i></button>
+                        <button class="btn btn-primary btn-sm flex-fill fw-bold" title="Rent Now"><i class="fa fa-bag-shopping"></i> Rent Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Card - 6 -->
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+            <div class="card h-100 product-card shadow-sm border-0">
+                <div class="product-img-container position-relative overflow-hidden">
+                    <img src="{{ asset('assets/mensuit/suit6.jpg') }}" alt="Slim Fit Navy Suit" class="product-img card-img-top">
+                    <button class="btn btn-light btn-sm quick-view-btn position-absolute top-50 start-50 translate-middle shadow"><i class="fa fa-eye"></i> Quick View</button>
+                </div>
+                <div class="card-body text-center py-2">
+                    <h5 class="card-title mb-1">Slim Fit Navy Suit</h5>
+                    <div class="text-muted" style="font-size:0.93em;">Business</div>
+                    <div class="fw-bold text-primary fs-6 mb-2">৳2000</div>
+                    <div class="d-flex gap-2 justify-content-center">
+                        <button class="btn btn-outline-primary btn-sm flex-fill" title="Add to Cart"><i class="fa fa-cart-plus"></i></button>
+                        <button class="btn btn-primary btn-sm flex-fill fw-bold" title="Rent Now"><i class="fa fa-bag-shopping"></i> Rent Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Card - 7 -->
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+            <div class="card h-100 product-card shadow-sm border-0">
+                <div class="product-img-container position-relative overflow-hidden">
+                    <img src="{{ asset('assets/mensuit/suit7.jpg') }}" alt="Wine Velvet Tuxedo" class="product-img card-img-top">
+                    <button class="btn btn-light btn-sm quick-view-btn position-absolute top-50 start-50 translate-middle shadow"><i class="fa fa-eye"></i> Quick View</button>
+                </div>
+                <div class="card-body text-center py-2">
+                    <h5 class="card-title mb-1">Wine Velvet Tuxedo</h5>
+                    <div class="text-muted" style="font-size:0.93em;">Evening</div>
+                    <div class="fw-bold text-primary fs-6 mb-2">৳2400</div>
+                    <div class="d-flex gap-2 justify-content-center">
+                        <button class="btn btn-outline-primary btn-sm flex-fill" title="Add to Cart"><i class="fa fa-cart-plus"></i></button>
+                        <button class="btn btn-primary btn-sm flex-fill fw-bold" title="Rent Now"><i class="fa fa-bag-shopping"></i> Rent Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Card - 8 -->
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+            <div class="card h-100 product-card shadow-sm border-0">
+                <div class="product-img-container position-relative overflow-hidden">
+                    <img src="{{ asset('assets/mensuit/suit8.jpg') }}" alt="White Sherwani" class="product-img card-img-top">
+                    <button class="btn btn-light btn-sm quick-view-btn position-absolute top-50 start-50 translate-middle shadow"><i class="fa fa-eye"></i> Quick View</button>
+                </div>
+                <div class="card-body text-center py-2">
+                    <h5 class="card-title mb-1">White Sherwani</h5>
+                    <div class="text-muted" style="font-size:0.93em;">Traditional</div>
+                    <div class="fw-bold text-primary fs-6 mb-2">৳2600</div>
+                    <div class="d-flex gap-2 justify-content-center">
+                        <button class="btn btn-outline-primary btn-sm flex-fill" title="Add to Cart"><i class="fa fa-cart-plus"></i></button>
+                        <button class="btn btn-primary btn-sm flex-fill fw-bold" title="Rent Now"><i class="fa fa-bag-shopping"></i> Rent Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Card - 9 -->
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+            <div class="card h-100 product-card shadow-sm border-0">
+                <div class="product-img-container position-relative overflow-hidden">
+                    <img src="{{ asset('assets/mensuit/suit9.jpg') }}" alt="Brown Tweed Suit" class="product-img card-img-top">
+                    <button class="btn btn-light btn-sm quick-view-btn position-absolute top-50 start-50 translate-middle shadow"><i class="fa fa-eye"></i> Quick View</button>
+                </div>
+                <div class="card-body text-center py-2">
+                    <h5 class="card-title mb-1">Brown Tweed Suit</h5>
+                    <div class="text-muted" style="font-size:0.93em;">Vintage</div>
+                    <div class="fw-bold text-primary fs-6 mb-2">৳1950</div>
+                    <div class="d-flex gap-2 justify-content-center">
+                        <button class="btn btn-outline-primary btn-sm flex-fill" title="Add to Cart"><i class="fa fa-cart-plus"></i></button>
+                        <button class="btn btn-primary btn-sm flex-fill fw-bold" title="Rent Now"><i class="fa fa-bag-shopping"></i> Rent Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Card - 10 -->
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+            <div class="card h-100 product-card shadow-sm border-0">
+                <div class="product-img-container position-relative overflow-hidden">
+                    <img src="{{ asset('assets/mensuit/suit10.jpg') }}" alt="Olive Green Suit" class="product-img card-img-top">
+                    <button class="btn btn-light btn-sm quick-view-btn position-absolute top-50 start-50 translate-middle shadow"><i class="fa fa-eye"></i> Quick View</button>
+                </div>
+                <div class="card-body text-center py-2">
+                    <h5 class="card-title mb-1">Olive Green Suit</h5>
+                    <div class="text-muted" style="font-size:0.93em;">Trendy</div>
+                    <div class="fw-bold text-primary fs-6 mb-2">৳2250</div>
+                    <div class="d-flex gap-2 justify-content-center">
+                        <button class="btn btn-outline-primary btn-sm flex-fill" title="Add to Cart"><i class="fa fa-cart-plus"></i></button>
+                        <button class="btn btn-primary btn-sm flex-fill fw-bold" title="Rent Now"><i class="fa fa-bag-shopping"></i> Rent Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 @endsection
 
 @push('styles')
 <style>
-.product-card-men {
-    transition: box-shadow 0.23s;
+.product-card {
     border-radius: 14px;
-    border: 1.5px solid #e3e7f0;
-    background: #f8f9fb;
+    transition: box-shadow 0.22s;
 }
-.product-card-men:hover {
-    box-shadow: 0 0.6rem 2rem rgba(13,110,253,0.13);
-    border-color: #b4cdf6;
+.product-card:hover {
+    box-shadow: 0 0.5rem 1.3rem rgba(0,60,170,0.08);
 }
-.product-img-container-men {
-    height: 340px;
-    background: #e3e7f0;
+.product-img-container {
+    height: 170px;
+    background: #f5f8fa;
     border-radius: 14px 14px 0 0;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 0.3rem;
 }
-.product-img-men {
-    height: 325px;
-    width: 100%;
-    object-fit: cover;
-    object-position: top;
-    transition: transform 0.33s;
+.product-img {
+    max-height: 96%;
+    max-width: 100%;
+    object-fit: contain;
+    transition: transform 0.25s;
 }
-.product-img-container-men:hover .product-img-men {
-    transform: scale(1.05) rotate(-0.5deg);
+.product-img-container:hover .product-img {
+    transform: scale(1.04) rotate(-1deg);
 }
-.quick-view-btn-men {
+.quick-view-btn {
     opacity: 0;
-    transition: opacity 0.3s;
+    transition: opacity 0.2s;
     pointer-events: none;
-    font-weight: 600;
 }
-.product-img-container-men:hover .quick-view-btn-men {
+.product-img-container:hover .quick-view-btn {
     opacity: 1;
     pointer-events: auto;
 }
 .card-title {
-    font-size: 1.16rem;
+    font-size: 1.03rem;
+    margin-bottom: 0.18rem;
+}
+.card-body {
+    padding: 0.65rem 0.4rem 0.85rem 0.4rem;
 }
 </style>
 @endpush
