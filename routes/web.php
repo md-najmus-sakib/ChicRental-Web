@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\LehengaController;
 
 Route::get('/', function () {
     return view('home');
@@ -42,3 +43,5 @@ Route::post('/wishlist/add/{id}', [WishlistController::class, 'add'])->name('wis
 Route::post('/cart/add/{id}', [CartController::class, 'add'])->name('cart.add');
 
 Route::post('/cart/rent-now/{id}', [CartController::class, 'rentNow'])->name('cart.rentNow');
+
+Route::get('/lehenga', [LehengaController::class, 'index'])->name('lehenga');
