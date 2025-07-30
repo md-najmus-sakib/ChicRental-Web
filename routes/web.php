@@ -49,3 +49,8 @@ Route::get('/lehenga', [LehengaController::class, 'index'])->name('lehenga');
 Route::get('/men/suits', function () {
     return view('mensuits');
 })->name('mensuits');
+
+//Signup Routes
+use App\Http\Controllers\AuthController;
+Route::get('/signup', [AuthController::class, 'showSignupForm'])->name('signup.form');
+Route::post('/signup', [AuthController::class, 'signup'])->name('signup');

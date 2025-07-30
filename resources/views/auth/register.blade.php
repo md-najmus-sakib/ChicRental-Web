@@ -8,7 +8,6 @@
                 <h2 class="mb-4 text-center fw-bold">
                     <i class="fa-solid fa-user-plus text-danger"></i> Sign Up
                 </h2>
-
                 @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul class="mb-0">
@@ -19,7 +18,7 @@
                     </div>
                 @endif
 
-                <form method="POST" action="{{ route('register') }}" id="signupForm" novalidate>
+                <form method="POST" action="{{ route('register') }}" id="signupForm" novalidate autocomplete="off">
                     @csrf
 
                     <div class="mb-3">
@@ -42,7 +41,7 @@
                         <label for="password" class="form-label">Password</label>
                         <div class="input-group">
                             <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
-                            <input type="password" name="password" id="password" required class="form-control" placeholder="Password">
+                            <input type="password" name="password" id="password" required class="form-control" placeholder="Password" autocomplete="new-password">
                         </div>
                     </div>
 
@@ -50,12 +49,12 @@
                         <label for="password_confirmation" class="form-label">Confirm Password</label>
                         <div class="input-group">
                             <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
-                            <input type="password" name="password_confirmation" id="password_confirmation" required class="form-control" placeholder="Confirm Password">
+                            <input type="password" name="password_confirmation" id="password_confirmation" required class="form-control" placeholder="Confirm Password" autocomplete="new-password">
                         </div>
                         <div id="password-error" class="text-danger small mt-1" style="display:none;"></div>
                     </div>
 
-                    <div class="d-grid mb-2 mt-4t ">
+                    <div class="d-grid mb-2 mt-4">
                         <button type="submit" class="btn btn-danger fw-bold" id="signupBtn">
                             <i class="fa-solid fa-user-plus"></i> Create Account
                         </button>
@@ -71,4 +70,7 @@
     </div>
 </div>
 @endsection
+
+@push('scripts')
 <script src="{{ asset('assets/js/register.js') }}"></script>
+@endpush
