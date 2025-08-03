@@ -1,15 +1,19 @@
 <?php
 
+namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
+
     public function showSignupForm()
     {
         return view('auth.signup');
     }
+
 
     public function signup(Request $request)
     {
@@ -25,23 +29,33 @@ class AuthController extends Controller
             'password' => Hash::make($request->password)
         ]);
 
-        return redirect()->route('login.form')->with('success', 'Account created! Please login.');
+        return redirect()->route('login')->with('success', 'Account created! Please login.');
     }
 
-    public function register(Request $request)
+    public function showLoginForm()
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|min:6|confirmed',
-        ]);
+        return view('auth.login');
+    }
 
-        User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
+    public function login(Request $request)
+    {
+        $credentials = $request->only('email', 'password');
 
-        return redirect()->route('login')->with('success', 'Account created! Please login.');
+        if (auth()->attempt($credentials)) {
+            $request->session()->regenerate();
+            return redirect()->intended('dashboard');
+        }
+
+        return back()->withErrors([
+            'email' => 'The provided credentials do not match our records.',
+        ])->withInput();
+    }
+
+    public function logout(Request $request)
+    {
+        auth()->logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect()->route('login');
     }
 }

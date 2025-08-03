@@ -18,7 +18,13 @@
                     </div>
                 @endif
 
-                <form method="POST" action="{{ route('register') }}" id="signupForm" novalidate autocomplete="off">
+                @if(session('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                @endif
+
+                <form method="POST" action="{{ route('signup') }}" id="signupForm" novalidate autocomplete="off">
                     @csrf
 
                     <div class="mb-3">

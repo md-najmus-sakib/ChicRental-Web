@@ -58,7 +58,7 @@
                 </li>
                 <!-- SignUp -->
                 <li class="nav-item">
-                    <a class="nav-link fw-bold signup-hover" href="{{ route('register') }}">
+                    <a class="nav-link fw-bold signup-hover" href="{{ route('signup') }}">
                         <i class="fa-solid fa-user"></i> SignUp
                     </a>
                 </li>
