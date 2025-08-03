@@ -61,3 +61,8 @@ Route::get('/search', function (Request $request) {
     $query = $request->q;
     return view('search', compact('query'));
 })->name('search');
+
+// ========== DASHBOARD ==========
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard')->middleware('auth');

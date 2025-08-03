@@ -9,6 +9,7 @@
                     <i class="fa-solid fa-right-to-bracket text-danger"></i> Login
                 </h2>
 
+                {{-- Display validation errors --}}
                 @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul class="mb-0">
@@ -19,7 +20,14 @@
                     </div>
                 @endif
 
-                <form method="POST" action="{{ route('login') }}" id="loginForm" novalidate>
+                {{-- Display session status (like "Account created! Please login.") --}}
+                @if (session('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                @endif
+
+                <form method="POST" action="{{ route('login') }}" id="loginForm" novalidate autocomplete="off">
                     @csrf
 
                     <div class="mb-3">
@@ -34,7 +42,7 @@
                         <label for="password" class="form-label">Password</label>
                         <div class="input-group">
                             <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
-                            <input type="password" name="password" id="password" required class="form-control" placeholder="Password">
+                            <input type="password" name="password" id="password" required class="form-control" placeholder="Password" autocomplete="current-password">
                         </div>
                     </div>
                     
@@ -50,17 +58,11 @@
                             <i class="fa-solid fa-right-to-bracket"></i> Login
                         </button>
                     </div>
-
-                    <div class="text-center mb-2">
-                        <a href="{{ route('password.request') }}" class="text-danger text-decoration-none fw-bold">
-                            <i class="fa-solid fa-key"></i> Forgot Password?
-                        </a>
-                    </div>
                 </form>
 
                 <div class="text-center mt-3">
                     Don't have an account?
-                    <a href="{{ route('register') }}" class="fw-bold text-danger text-decoration-none">Sign Up</a>
+                    <a href="{{ route('signup.form') }}" class="fw-bold text-danger text-decoration-none">Sign Up</a>
                 </div>
             </div>
         </div>

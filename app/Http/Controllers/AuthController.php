@@ -41,7 +41,7 @@ class AuthController extends Controller
     {
         $credentials = $request->only('email', 'password');
 
-        if (auth()->attempt($credentials)) {
+        if (auth()->attempt($credentials, $request->remember)) {
             $request->session()->regenerate();
             return redirect()->intended('dashboard');
         }
