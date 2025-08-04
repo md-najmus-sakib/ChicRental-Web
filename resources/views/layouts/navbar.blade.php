@@ -55,6 +55,11 @@
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
                             <li>
+                                <a class="dropdown-item" href="{{ route('dashboard') }}">
+                                    <i class="fa fa-gauge"></i> Dashboard
+                                </a>
+                            </li>
+                            <li>
                                 <a class="dropdown-item" href="{{ route('profile.edit') }}">
                                     <i class="fa fa-user-cog"></i> Profile
                                 </a>

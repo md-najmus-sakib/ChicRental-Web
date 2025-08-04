@@ -14,7 +14,6 @@ class AuthController extends Controller
         return view('auth.signup');
     }
 
-
     public function signup(Request $request)
     {
         $request->validate([
@@ -43,7 +42,7 @@ class AuthController extends Controller
 
         if (auth()->attempt($credentials, $request->remember)) {
             $request->session()->regenerate();
-            return redirect()->intended('dashboard');
+            return redirect()->route('dashboard');
         }
 
         return back()->withErrors([

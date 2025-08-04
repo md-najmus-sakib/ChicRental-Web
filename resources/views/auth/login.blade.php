@@ -20,7 +20,7 @@
                     </div>
                 @endif
 
-                {{-- Display session status (like "Account created! Please login.") --}}
+                {{-- Display session status --}}
                 @if (session('success'))
                     <div class="alert alert-success">
                         {{ session('success') }}
@@ -58,6 +58,12 @@
                             <i class="fa-solid fa-right-to-bracket"></i> Login
                         </button>
                     </div>
+
+                    <div class="text-center mb-2">
+                        <a href="{{ route('password.request') }}" class="text-danger text-decoration-none fw-bold">
+                            <i class="fa-solid fa-key"></i> Forgot Password?
+                        </a>
+                    </div>
                 </form>
 
                 <div class="text-center mt-3">
@@ -69,4 +75,5 @@
     </div>
 </div>
 @endsection
-<script src="{{ asset('assets/js/login.js') }}"></script>
+
+{{-- <script src="{{ asset('assets/js/login.js') }}"></script> --}}
