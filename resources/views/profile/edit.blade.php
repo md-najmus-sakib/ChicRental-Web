@@ -24,9 +24,22 @@
                         </div>
                     @endif
 
-                    <form action="{{ route('profile.update') }}" method="POST" autocomplete="off">
+                    <form action="{{ route('profile.update') }}" method="POST" enctype="multipart/form-data" autocomplete="off">
                         @csrf
                         @method('PATCH')
+
+                        <div class="mb-3 text-center">
+                            @if($user->profile_pic)
+                                <img src="{{ asset('storage/' . $user->profile_pic) }}" alt="Profile" width="80" class="rounded-circle shadow mb-2">
+                            @else
+                                <img src="{{ asset('assets/image/default-user.png') }}" alt="Profile" width="80" class="rounded-circle shadow mb-2">
+                            @endif
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="profile_pic" class="form-label fw-semibold">Profile Picture</label>
+                            <input type="file" name="profile_pic" id="profile_pic" class="form-control" accept="image/*">
+                        </div>
 
                         <div class="mb-3">
                             <label for="name" class="form-label fw-semibold">Full Name</label>
@@ -41,6 +54,18 @@
                         </div>
 
                         <div class="mb-3">
+                            <label for="phone" class="form-label fw-semibold">Phone</label>
+                            <input type="text" name="phone" id="phone" value="{{ old('phone', $user->phone) }}"
+                                   class="form-control" placeholder="+8801XXXXXXXXX">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="address" class="form-label fw-semibold">Address</label>
+                            <input type="text" name="address" id="address" value="{{ old('address', $user->address) }}"
+                                   class="form-control" placeholder="Enter your address">
+                        </div>
+
+                        <div class="mb-3">
                             <label for="password" class="form-label fw-semibold">New Password</label>
                             <input type="password" name="password" id="password" class="form-control"
                                    placeholder="Leave blank to keep current">
@@ -51,14 +76,6 @@
                             <input type="password" name="password_confirmation" id="password_confirmation"
                                    class="form-control" placeholder="Retype new password">
                         </div>
-
-                        {{-- 
-                        <div class="mb-3">
-                            <label for="rating" class="form-label fw-semibold">Rating (0-5)</label>
-                            <input type="number" name="rating" id="rating" value="{{ old('rating', $user->rating) }}"
-                                   class="form-control" min="0" max="5" step="0.1">
-                        </div>
-                        --}}
 
                         <div class="d-grid mt-4">
                             <button type="submit" class="btn btn-danger fw-bold">
