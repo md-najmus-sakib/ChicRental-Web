@@ -47,21 +47,45 @@
                         <i class="fa-solid fa-cart-shopping fa-lg"></i>
                     </a>
                 </li>
-                <!-- Login -->
-                <li class="nav-item">
-                    <a class="nav-link fw-bold login-hover" href="{{ route('login') }}">
-                        <i class="fa-solid fa-right-to-bracket"></i> Login
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <span class="mx-2" style="font-size:1.3rem; color:#bdbdbd;">|</span>
-                </li>
-                <!-- SignUp -->
-                <li class="nav-item">
-                    <a class="nav-link fw-bold signup-hover" href="{{ route('signup') }}">
-                        <i class="fa-solid fa-user"></i> SignUp
-                    </a>
-                </li>
+                {{-- Authenticated User --}}
+                @auth
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle fw-bold" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa fa-user"></i> {{ Auth::user()->name }}
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+                            <li>
+                                <a class="dropdown-item" href="{{ route('profile.edit') }}">
+                                    <i class="fa fa-user-cog"></i> Profile
+                                </a>
+                            </li>
+                            <li>
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <button type="submit" class="dropdown-item">
+                                        <i class="fa fa-sign-out-alt"></i> Logout
+                                    </button>
+                                </form>
+                            </li>
+                        </ul>
+                    </li>
+                @else
+                    <!-- Login -->
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold login-hover" href="{{ route('login') }}">
+                            <i class="fa-solid fa-right-to-bracket"></i> Login
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <span class="mx-2" style="font-size:1.3rem; color:#bdbdbd;">|</span>
+                    </li>
+                    <!-- SignUp -->
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold signup-hover" href="{{ route('signup.form') }}">
+                            <i class="fa-solid fa-user"></i> SignUp
+                        </a>
+                    </li>
+                @endauth
             </ul>
         </div>
     </div>
