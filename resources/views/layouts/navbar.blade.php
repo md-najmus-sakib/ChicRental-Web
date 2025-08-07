@@ -42,9 +42,15 @@
                 </div>
             </form>
             <ul class="navbar-nav mb-2 mb-lg-0 align-items-center">
-                <li class="nav-item me-3">
-                    <a class="nav-link position-relative" href="{{ route('cart') }}">
-                        <i class="fa-solid fa-cart-shopping fa-lg"></i>
+                <!-- Cart Icon -->
+                <li class="nav-item me-3 position-relative">
+                    <a class="nav-link" href="{{ route('cart') }}">
+                        <i class="fa fa-shopping-cart fa-lg"></i>
+                        @if($cartCount > 0)
+                        <span class="position-absolute top-1 start-100 translate-middle badge rounded-pill bg-danger">
+                            {{ $cartCount }}
+                        </span>
+                        @endif
                     </a>
                 </li>
                 {{-- Authenticated User --}}
