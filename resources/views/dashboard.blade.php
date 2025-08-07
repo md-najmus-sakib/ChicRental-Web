@@ -26,7 +26,6 @@
     </div>
 
     <div class="row justify-content-center g-4">
-        <!-- Profile Card -->
         <div class="col-12 col-md-4">
             <div class="card shadow border-0 text-center h-100">
                 <div class="card-body">
@@ -39,7 +38,6 @@
                 </div>
             </div>
         </div>
-        <!-- Orders Card -->
         <div class="col-12 col-md-4">
             <div class="card shadow border-0 text-center h-100">
                 <div class="card-body">
@@ -52,7 +50,6 @@
                 </div>
             </div>
         </div>
-        <!-- Wishlist Card -->
         <div class="col-12 col-md-4">
             <div class="card shadow border-0 text-center h-100">
                 <div class="card-body">
@@ -85,7 +82,7 @@
                         <h5 class="mb-0"><i class="fa-solid fa-circle-info text-info"></i> Your Account Info</h5>
                     </div>
                     <div class="row">
-                        <div class="col-6 col-md-3">
+                        <div class="col-6 col-md-2">
                             <span class="text-muted small">Name:</span>
                             <div class="fw-semibold">{{ Auth::user()->name }}</div>
                         </div>
@@ -93,7 +90,11 @@
                             <span class="text-muted small">Email:</span>
                             <div class="fw-semibold">{{ Auth::user()->email }}</div>
                         </div>
-                        <div class="col-6 col-md-3 mt-2 mt-md-0">
+                        <div class="col-6 col-md-2 mt-2 mt-md-0">
+                            <span class="text-muted small">Phone:</span>
+                            <div class="fw-semibold">{{ Auth::user()->phone ?? '-' }}</div>
+                        </div>
+                        <div class="col-6 col-md-2 mt-2 mt-md-0">
                             <span class="text-muted small">Member Since:</span>
                             <div class="fw-semibold">{{ Auth::user()->created_at->format('d M Y') }}</div>
                         </div>
@@ -103,7 +104,11 @@
                                 @if(Auth::user()->rating)
                                     <span class="text-warning">
                                         @for($i = 1; $i <= 5; $i++)
-                                            <i class="fa{{ $i <= Auth::user()->rating ? 's' : 'r' }} fa-star"></i>
+                                            @if($i <= Auth::user()->rating)
+                                                <i class="fa-solid fa-star"></i>
+                                            @else
+                                                <i class="fa-regular fa-star"></i>
+                                            @endif
                                         @endfor
                                         ({{ Auth::user()->rating }})
                                     </span>
