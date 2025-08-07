@@ -2,64 +2,56 @@
 
 @section('content')
 <div class="container py-5 mt-5">
-    <h2 class="fw-bold mb-4"><i class="fa-solid fa-cart-shopping text-danger"></i> Shopping Cart</h2>
-    @if(isset($cartItems) && count($cartItems))
-        <div class="row">
+    <h2 class="fw-bold mb-4">
+        <i class="fa-solid fa-cart-shopping text-danger"></i> My Cart
+        <span class="badge bg-danger ms-1">{{ $cart->count() }}</span>
+    </h2>
+
+    @if($cart->count())
+        <div class="row g-4">
             <div class="col-lg-8">
-                <div class="table-responsive">
-                    <table class="table align-middle">
-                        <thead class="table-light">
-                            <tr>
-                                <th>Product</th>
-                                <th>Item</th>
-                                <th class="text-center">Price</th>
-                                <th class="text-center">Qty</th>
-                                <th class="text-center">Subtotal</th>
-                                <th class="text-center">Wishlist</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach($cartItems as $item)
-                            <tr>
-                                <td style="width:90px">
-                                    <img src="{{ $item->image_url ?? asset('assets/img/noimage.png') }}" alt="{{ $item->name }}" class="img-fluid rounded" style="max-width:60px;">
-                                </td>
-                                <td>
-                                    <span class="fw-bold">{{ $item->name }}</span><br>
-                                    <span class="text-muted small">{{ $item->category ?? '' }}</span>
-                                </td>
-                                <td class="text-center">৳{{ number_format($item->price, 2) }}</td>
-                                <td class="text-center">
-                                    <form method="POST" action="{{ route('cart.update', $item->id) }}" class="d-inline">
+                @foreach($cart as $item)
+                <div class="card shadow-sm border-0 mb-3 position-relative cart-item-card">
+                    <div class="row g-0 align-items-center">
+                        <div class="col-3 col-md-2 text-center">
+                            <img src="{{ $item->image_url ?? asset('assets/img/noimage.png') }}"
+                                 alt="{{ $item->name }}"
+                                 class="img-fluid rounded"
+                                 style="max-width:70px; max-height:70px; object-fit:cover; box-shadow:0 1px 8px #ececec;">
+                        </div>
+                        <div class="col-9 col-md-7">
+                            <div class="ps-md-2">
+                                <div class="fw-semibold fs-6 mb-1">{{ $item->name }}</div>
+                                <div class="text-muted small">{{ $item->category ?? '' }}</div>
+                                <div class="text-primary fw-bold">৳{{ number_format($item->price,2) }}</div>
+                                <div class="d-flex align-items-center mt-1">
+                                    <form method="POST" action="{{ route('cart.update', $item->id) }}" class="d-flex align-items-center me-2">
                                         @csrf
-                                        <input type="number" name="quantity" min="1" value="{{ $item->quantity }}" class="form-control form-control-sm d-inline-block" style="width:65px;">
-                                        <button class="btn btn-link text-success p-0 ms-2" type="submit" title="Update"><i class="fa-solid fa-arrows-rotate"></i></button>
-                                    </form>
-                                </td>
-                                <td class="text-center">৳{{ number_format($item->price * $item->quantity, 2) }}</td>
-                                <td class="text-center">
-                                    <!-- Move to Wishlist button -->
-                                    <form method="POST" action="{{ route('wishlist.add', $item->id) }}">
-                                        @csrf
-                                        <button class="btn btn-link text-warning" type="submit" title="Move to Wishlist">
-                                            <i class="fa-solid fa-heart"></i>
+                                        <input type="number" name="quantity" min="1" value="{{ $item->quantity }}"
+                                               class="form-control form-control-sm" style="width:55px;">
+                                        <button class="btn btn-link text-success p-0 ms-2" type="submit" title="Update">
+                                            <i class="fa-solid fa-arrows-rotate"></i>
                                         </button>
                                     </form>
-                                </td>
-                                <td class="text-center">
-                                    <form method="POST" action="{{ route('cart.remove', $item->id) }}">
-                                        @csrf
-                                        <button class="btn btn-link text-danger" type="submit" title="Remove"><i class="fa-solid fa-trash"></i></button>
-                                    </form>
-                                </td>
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                                    <div class="ms-2">
+                                        <span class="small text-muted">Subtotal: </span>
+                                        <span class="fw-semibold">৳{{ number_format($item->price * $item->quantity,2) }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-3 text-md-end text-start mt-3 mt-md-0 d-flex flex-md-column flex-row gap-2 justify-content-end align-items-center pe-3">
+                            <form method="POST" action="{{ route('cart.remove', $item->id) }}">
+                                @csrf
+                                <button class="btn btn-outline-danger btn-sm px-3" type="submit" title="Remove">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
+                @endforeach
 
-                <!-- Coupon Apply Section -->
                 <div class="card shadow-sm border-0 mt-4">
                     <div class="card-body py-3">
                         <form method="POST" action="{{ route('cart.coupon') }}" class="row g-2 align-items-center">
@@ -81,17 +73,17 @@
                     </div>
                 </div>
             </div>
+
             <div class="col-lg-4">
-                <div class="card shadow border-0">
+                <div class="card shadow border-0 sticky-top" style="top:90px">
                     <div class="card-body">
                         <h5 class="fw-bold mb-3">Order Summary</h5>
                         @php
                             $total = 0;
-                            foreach($cartItems as $item) {
+                            foreach($cart as $item) {
                                 $total += $item->price * $item->quantity;
                             }
-                            // Demo coupon logic (replace with real)
-                            $discount = session('coupon_discount') ?? 0; // in percentage, e.g. 10 = 10%
+                            $discount = session('coupon_discount') ?? 0;
                             $discountAmount = $discount ? ($total * $discount / 100) : 0;
                             $delivery = 60;
                             $grandTotal = $total - $discountAmount + $delivery;
@@ -133,3 +125,13 @@
     @endif
 </div>
 @endsection
+
+@push('styles')
+<style>
+    .cart-item-card:hover {
+        border-color: #e74c3c;
+        box-shadow: 0 2px 20px #e74c3c1a;
+        transition: all 0.22s;
+    }
+</style>
+@endpush
