@@ -10,7 +10,6 @@
             <div class="text-muted mb-2">Explore our exclusive saree rental collection for every occasion.</div>
         </div>
         <div class="col-lg-4 d-flex align-items-end justify-content-lg-end mb-2 mb-lg-0">
-            <!-- Search & Filter -->
             <form class="d-flex w-100" method="GET" action="#">
                 <input type="search" name="q" class="form-control me-2" placeholder="Search saree...">
                 <select class="form-select me-2" name="sort">
@@ -24,7 +23,6 @@
         </div>
     </div>
 
-    <!-- Saree List -->
     <div class="row g-3">
         @php
             $sareeNames = [
@@ -44,7 +42,6 @@
             <div class="card h-100 border-0 shadow-sm product-card position-relative">
                 <div class="product-img-container position-relative overflow-hidden">
                     <img src="{{ $images[$i] }}" class="card-img-top product-img" alt="{{ $sareeNames[$i] }}">
-                    <!-- Quick View Button (triggers modal) -->
                     <button 
                         class="btn btn-light btn-sm quick-view-btn position-absolute top-50 start-50 translate-middle shadow"
                         data-bs-toggle="modal" data-bs-target="#quickViewModal{{ $i }}"
@@ -60,9 +57,17 @@
                     <div class="mb-1 text-muted" style="font-size:0.9em;">{{ $categories[$i] }}</div>
                     <div class="fw-bold text-danger mb-2" style="font-size:1.1em;">৳{{ $prices[$i] }}</div>
                     <div class="d-flex gap-2 justify-content-center">
-                        <button class="btn btn-outline-danger flex-fill" title="Add to Cart">
-                            <i class="fa fa-cart-plus"></i>
-                        </button>
+                        <form method="POST" action="{{ route('cart.add', $i+1) }}" class="flex-fill">
+                            @csrf
+                            <input type="hidden" name="name" value="{{ $sareeNames[$i] }}">
+                            <input type="hidden" name="price" value="{{ $prices[$i] }}">
+                            <input type="hidden" name="image_url" value="{{ $images[$i] }}">
+                            <input type="hidden" name="category" value="{{ $categories[$i] }}">
+                            <input type="hidden" name="quantity" value="1">
+                            <button type="submit" class="btn btn-outline-danger w-100" title="Add to Cart">
+                                <i class="fa fa-cart-plus"></i>
+                            </button>
+                        </form>
                         <button class="btn btn-danger flex-fill fw-bold" title="Rent Now">
                             <i class="fa fa-bag-shopping"></i> Rent Now
                         </button>
@@ -71,7 +76,6 @@
             </div>
         </div>
 
-        <!-- Quick View Modal for this card -->
         <div class="modal fade" id="quickViewModal{{ $i }}" tabindex="-1" aria-labelledby="quickViewModalLabel{{ $i }}" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
@@ -85,9 +89,17 @@
                         <div class="fw-bold text-danger mb-3" style="font-size:1.2em;">৳{{ $prices[$i] }}</div>
                         <p>Lorem ipsum dolor sit amet, beautiful designer saree available for rent.</p>
                         <div class="d-flex gap-2 justify-content-center">
-                            <button class="btn btn-outline-danger flex-fill" title="Add to Cart">
-                                <i class="fa fa-cart-plus"></i>
-                            </button>
+                            <form method="POST" action="{{ route('cart.add', $i+1) }}" class="flex-fill">
+                                @csrf
+                                <input type="hidden" name="name" value="{{ $sareeNames[$i] }}">
+                                <input type="hidden" name="price" value="{{ $prices[$i] }}">
+                                <input type="hidden" name="image_url" value="{{ $images[$i] }}">
+                                <input type="hidden" name="category" value="{{ $categories[$i] }}">
+                                <input type="hidden" name="quantity" value="1">
+                                <button type="submit" class="btn btn-outline-danger w-100" title="Add to Cart">
+                                    <i class="fa fa-cart-plus"></i>
+                                </button>
+                            </form>
                             <button class="btn btn-danger flex-fill fw-bold" title="Rent Now">
                                 <i class="fa fa-bag-shopping"></i> Rent Now
                             </button>
@@ -124,7 +136,6 @@
     align-items: center;
     justify-content: center;
 }
-
 .product-img {
     width: 100%;
     height: 100%;
@@ -132,7 +143,6 @@
     display: block;
     transition: transform 0.3s;
 }
-
 .product-img-container:hover .product-img {
     transform: scale(1.05) rotate(-1.5deg);
 }
