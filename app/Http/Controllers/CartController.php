@@ -48,4 +48,15 @@ class CartController extends Controller
 
         return redirect()->back()->with('success', 'Product added to cart!');
     }
+    
+    public function remove($id)
+    {
+        $cartItem = CartItem::where('id', $id)
+                            ->where('user_id', Auth::id())
+                            ->first();
+        if ($cartItem) {
+            $cartItem->delete();
+        }
+        return redirect()->back()->with('success', 'Item removed from cart.');
+    }
 }

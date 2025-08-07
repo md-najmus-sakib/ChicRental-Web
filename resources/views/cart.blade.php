@@ -2,6 +2,16 @@
 
 @section('content')
 <div class="container py-5 mt-5">
+
+    {{-- Success Message Pop-up --}}
+    @if(session('success'))
+        <div id="cart-alert" class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
+
+
     <h2 class="fw-bold mb-4">
         <i class="fa-solid fa-cart-shopping text-danger"></i> My Cart
         <span class="badge bg-danger ms-1">{{ $cart->count() }}</span>
@@ -41,6 +51,7 @@
                             </div>
                         </div>
                         <div class="col-12 col-md-3 text-md-end text-start mt-3 mt-md-0 d-flex flex-md-column flex-row gap-2 justify-content-end align-items-center pe-3">
+                            {{-- Remove Button --}}
                             <form method="POST" action="{{ route('cart.remove', $item->id) }}">
                                 @csrf
                                 <button class="btn btn-outline-danger btn-sm px-3" type="submit" title="Remove">
@@ -134,4 +145,18 @@
         transition: all 0.22s;
     }
 </style>
+@endpush
+
+@push('scripts')
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var alertBox = document.getElementById('cart-alert');
+        if(alertBox){
+            setTimeout(function(){
+                var bsAlert = new bootstrap.Alert(alertBox);
+                bsAlert.close();
+            }, 1500);
+        }
+    });
+</script>
 @endpush
