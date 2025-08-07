@@ -3,30 +3,49 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\CartItem;
+use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
+    public function show()
+    {
+        $cart = CartItem::where('user_id', Auth::id())->get();
+        return view('cart', compact('cart'));
+    }
+
     public function index()
     {
-        return view('cart');
+        $cart = CartItem::where('user_id', Auth::id())->get();
+        return view('cart', compact('cart'));
     }
 
-    public function add(Request $request, $id)
+    public function add(Request $request)
     {
-        $cart = session()->get('cart', []);
-        if (isset($cart[$id])) {
-            $cart[$id]['quantity']++;
+        $request->validate([
+            'name' => 'required',
+            'price' => 'required|numeric',
+            'quantity' => 'required|integer|min:1',
+        ]);
+
+        $item = CartItem::where('user_id', Auth::id())
+            ->where('name', $request->name)
+            ->first();
+
+        if ($item) {
+            $item->quantity += $request->quantity;
+            $item->save();
         } else {
-            $cart[$id] = [
-                'quantity' => 1
-            ];
+            CartItem::create([
+                'user_id' => Auth::id(),
+                'name' => $request->name,
+                'category' => $request->category,
+                'image_url' => $request->image_url,
+                'price' => $request->price,
+                'quantity' => $request->quantity,
+            ]);
         }
-        session(['cart' => $cart]);
-        return back()->with('success', 'Item added to cart!');
-    }
 
-    public function rentNow($id)
-    {
-        return view('cart.checkout', ['saree_id' => $id]);
+        return redirect()->back()->with('success', 'Product added to cart!');
     }
 }
