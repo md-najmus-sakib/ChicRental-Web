@@ -41,6 +41,7 @@ require __DIR__.'/auth.php';
 //   PRODUCT ROUTES
 Route::get('/sarees', [SareeController::class, 'sarees'])->name('sarees');
 Route::get('/lehenga', [LehengaController::class, 'index'])->name('lehenga');
+Route::get('/jewellery', [App\Http\Controllers\JewelleryController::class, 'index'])->name('jewellery');
 Route::get('/men/suits', fn() => view('mensuits'))->name('mensuits');
 
 

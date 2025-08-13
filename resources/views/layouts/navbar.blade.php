@@ -23,7 +23,7 @@
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="{{ route('sarees') }}">Saree</a></li>
                         <li><a class="dropdown-item" href="{{ route('lehenga') }}">Lehenga</a></li>
-                        <li><a class="dropdown-item" href="#">Jewellery</a></li>
+                        <li><a class="dropdown-item" href="{{ route('jewellery') }}">Jewellery</a></li>
                     </ul>
                 </li>
                 <li class="nav-item"><a class="nav-link" href="#">Couple Dress</a></li>
