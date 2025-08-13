@@ -2,6 +2,14 @@
 
 @section('content')
 <div class="container py-4 mt-5">
+
+    @if(session('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
+
     <div class="row mb-4">
         <div class="col-lg-8">
             <h2 class="fw-bold mb-2">
@@ -55,18 +63,37 @@
                     <h5 class="card-title mb-1">{{ $lehenga['name'] }}</h5>
                     <div class="mb-1 text-muted" style="font-size:0.95em;">{{ $lehenga['category'] }}</div>
                     <div class="fw-bold text-danger fs-5 mb-1">৳{{ number_format($lehenga['price'], 0) }}</div>
+
                     <div class="d-flex gap-2 justify-content-center">
-                        <button class="btn btn-outline-danger flex-fill" title="Add to Cart">
-                            <i class="fa fa-cart-plus"></i>
-                        </button>
-                        <button class="btn btn-danger flex-fill fw-bold" title="Rent Now">
-                            <i class="fa fa-bag-shopping"></i> Rent Now
-                        </button>
+                        <form method="POST" action="{{ route('cart.add') }}" class="flex-fill">
+                            @csrf
+                            <input type="hidden" name="name" value="{{ $lehenga['name'] }}">
+                            <input type="hidden" name="category" value="{{ $lehenga['category'] }}">
+                            <input type="hidden" name="price" value="{{ $lehenga['price'] }}">
+                            <input type="hidden" name="image_url" value="{{ asset('assets/image/'.$lehenga['image']) }}">
+                            <input type="hidden" name="quantity" value="1">
+                            <button class="btn btn-outline-danger w-100" type="submit" title="Add to Cart">
+                                <i class="fa fa-cart-plus"></i>
+                            </button>
+                        </form>
+
+                        <form method="POST" action="{{ route('cart.add') }}" class="flex-fill">
+                            @csrf
+                            <input type="hidden" name="name" value="{{ $lehenga['name'] }}">
+                            <input type="hidden" name="category" value="{{ $lehenga['category'] }}">
+                            <input type="hidden" name="price" value="{{ $lehenga['price'] }}">
+                            <input type="hidden" name="image_url" value="{{ asset('assets/image/'.$lehenga['image']) }}">
+                            <input type="hidden" name="quantity" value="1">
+                            <button class="btn btn-danger w-100 fw-bold" type="submit" title="Rent Now">
+                                <i class="fa fa-bag-shopping"></i> Rent Now
+                            </button>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Quick View Modal -->
+
+        {{-- Quick View Modal --}}
         <div class="modal fade" id="quickViewModal{{ $loop->index }}" tabindex="-1" aria-labelledby="quickViewModalLabel{{ $loop->index }}" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
@@ -89,10 +116,33 @@
                             <div class="mb-3">
                                 <span class="fw-bold">Size:</span> Free Size
                             </div>
-                            <button class="btn btn-danger fw-bold">
-                                <i class="fa fa-bag-shopping"></i> Rent Now
-                            </button>
-                            <button class="btn btn-outline-danger ms-2">
+
+                            {{-- Modal Add to Cart --}}
+                            <form method="POST" action="{{ route('cart.add') }}" class="d-inline">
+                                @csrf
+                                <input type="hidden" name="name" value="{{ $lehenga['name'] }}">
+                                <input type="hidden" name="category" value="{{ $lehenga['category'] }}">
+                                <input type="hidden" name="price" value="{{ $lehenga['price'] }}">
+                                <input type="hidden" name="image_url" value="{{ asset('assets/image/'.$lehenga['image']) }}">
+                                <input type="hidden" name="quantity" value="1">
+                                <button class="btn btn-outline-danger">
+                                    <i class="fa fa-cart-plus"></i> Add to Cart
+                                </button>
+                            </form>
+
+                            <form method="POST" action="{{ route('cart.add') }}" class="d-inline ms-2">
+                                @csrf
+                                <input type="hidden" name="name" value="{{ $lehenga['name'] }}">
+                                <input type="hidden" name="category" value="{{ $lehenga['category'] }}">
+                                <input type="hidden" name="price" value="{{ $lehenga['price'] }}">
+                                <input type="hidden" name="image_url" value="{{ asset('assets/image/'.$lehenga['image']) }}">
+                                <input type="hidden" name="quantity" value="1">
+                                <button class="btn btn-danger fw-bold">
+                                    <i class="fa fa-bag-shopping"></i> Rent Now
+                                </button>
+                            </form>
+
+                            <button class="btn btn-outline-secondary ms-2">
                                 <i class="fa-regular fa-heart"></i> Wishlist
                             </button>
                         </div>
@@ -116,7 +166,7 @@
 }
 .product-img-container {
     width: 100%;
-    height: 310px;            /* Fixed height for all images */
+    height: 310px;
     background: #f8f9fa;
     border-radius: 14px 14px 0 0;
     position: relative;
@@ -148,4 +198,18 @@
     font-size: 1.08rem;
 }
 </style>
+@endpush
+
+@push('scripts')
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let alertBox = document.querySelector('.alert');
+        if (alertBox) {
+            setTimeout(function () {
+                alertBox.classList.add('fade');
+                setTimeout(() => alertBox.remove(), 500);
+            }, 1500);
+        }
+    });
+</script>
 @endpush

@@ -2,6 +2,14 @@
 
 @section('content')
 <div class="container py-4 mt-5">
+
+    @if(session('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
+
     <div class="row mb-4">
         <div class="col-lg-8">
             <h2 class="fw-bold mb-2">
@@ -160,4 +168,18 @@
     font-size: 1rem;
 }
 </style>
+@endpush
+
+@push('scripts')
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let alertBox = document.querySelector('.alert');
+        if (alertBox) {
+            setTimeout(function () {
+                alertBox.classList.add('fade');
+                setTimeout(() => alertBox.remove(), 500);
+            }, 1500);
+        }
+    });
+</script>
 @endpush
