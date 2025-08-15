@@ -27,9 +27,7 @@ class ProfileController extends Controller
             'rating' => 'nullable|numeric|min:0|max:5',
         ]);
 
-        // Handle profile picture upload
         if ($request->hasFile('profile_pic')) {
-            // Delete old profile pic if exists
             if ($user->profile_pic && Storage::disk('public')->exists($user->profile_pic)) {
                 Storage::disk('public')->delete($user->profile_pic);
             }

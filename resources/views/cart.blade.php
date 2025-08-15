@@ -118,7 +118,7 @@
                             <span class="fw-bold fs-5">Total:</span>
                             <span class="fw-bold fs-5 text-danger">৳{{ number_format($grandTotal, 2) }}</span>
                         </div>
-                        <a href="{{ route('checkout') }}" class="btn btn-danger w-100 fw-bold">
+                        <a href="{{ route('checkout.index') }}" class="btn btn-danger w-100 fw-bold">
                             <i class="fa-solid fa-credit-card"></i> Proceed to Checkout
                         </a>
                     </div>

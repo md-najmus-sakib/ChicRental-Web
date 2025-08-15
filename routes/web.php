@@ -10,6 +10,7 @@ use App\Http\Controllers\LehengaController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\WishlistController;
+use App\Http\Controllers\CheckoutController;
 
 
 //      HOME PAGE
@@ -78,6 +79,17 @@ Route::get('/checkout', function () {
     return view('checkout');
 })->name('checkout');
 
+// Order Success Route
+Route::get('/order-success', function () {
+    return view('order_success');
+})->name('order.success');
+
+// Checkout page route
+Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
+
+// Place order route
+Route::post('/checkout', [CheckoutController::class, 'placeOrder'])->name('checkout.placeOrder');
+
 
 
 //   ORDER TRACKING
@@ -98,7 +110,6 @@ Route::middleware(['auth'])->group(function () {
         return view('dashboard');
     })->name('dashboard');
 });
-
 
 
 //   PROFILE ROUTES
