@@ -14,7 +14,7 @@
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="{{ route('mensuits') }}">Suit</a></li>
                         <li><a class="dropdown-item" href="{{ route('sherwani') }}">Sherwani</a></li>
-                        <li><a class="dropdown-item" href="#">Kurta</a></li>
+                        <li><a class="dropdown-item" href="{{ route('kurta') }}">Kurta</a></li>
                     </ul>
                 </li>
                 <!-- Women Dropdown -->
