@@ -29,7 +29,7 @@
                 <<li class="nav-item"><a class="nav-link" href="{{ route('couple') }}">Couple Dress</a></li>
                 <!-- Extra Features -->
                 <li class="nav-item"><a class="nav-link" href="{{ route('track_order')}}">Track Order</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Offers</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('offers') }}">Offers</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('faq') }}">FAQ</a></li>
             </ul>
             <!-- Search Option -->
