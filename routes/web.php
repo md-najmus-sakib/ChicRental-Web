@@ -46,6 +46,7 @@ Route::get('/jewellery', [App\Http\Controllers\JewelleryController::class, 'inde
 // Men's Clothing
 Route::get('/men/suits', fn() => view('mensuits'))->name('mensuits');
 Route::get('/men/sherwani', fn() => view('sherwani'))->name('sherwani');
+Route::get('/men/kurta', fn() => view('kurta'))->name('kurta');
 
 
 //   WISHLIST & CART
