@@ -38,11 +38,14 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 require __DIR__.'/auth.php';
 
 
-//   PRODUCT ROUTES
+// Womwen's Clothing
 Route::get('/sarees', [SareeController::class, 'sarees'])->name('sarees');
 Route::get('/lehenga', [LehengaController::class, 'index'])->name('lehenga');
 Route::get('/jewellery', [App\Http\Controllers\JewelleryController::class, 'index'])->name('jewellery');
+
+// Men's Clothing
 Route::get('/men/suits', fn() => view('mensuits'))->name('mensuits');
+Route::get('/men/sherwani', fn() => view('sherwani'))->name('sherwani');
 
 
 //   WISHLIST & CART
